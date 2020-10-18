@@ -1,0 +1,21 @@
+version: "3"
+services:
+  api:
+    build:
+      context: ./api
+    ports:
+      - "4000:4000"
+    container_name: movie-api
+    volumes:
+      - ./api:/usr/src/app/api
+      - /usr/src/app/api/node_modules
+
+  client:
+    build:
+      context: ./client
+    ports:
+      - "3000:3000"
+    container_name: movie-client
+    volumes:
+      - ./client:/usr/src/app/client
+      - /usr/src/app/client/node_modules
